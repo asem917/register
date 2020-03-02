@@ -1,0 +1,7 @@
+Main.class
+com\asem\regestration\model\dao\utils\WraperConnection.class
+com\asem\regestration\model\dao\StudentDAO.class
+com\asem\regestration\model\entity\Student.class
+com\asem\regestration\model\dao\impl\StudentDAOIMpl.class
+com\asem\regestration\model\dao\utils\DataSourcePool.class
+com\asem\regestration\model\dao\utils\Queue2.class
