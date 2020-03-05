@@ -32,14 +32,6 @@ public class StudentDAOIMpl implements StudentDAO {
         return dataSourcePool.getConnections().getConnection();
 
     }
-
-
-
-
-
-
-
-
     @Override
     public Student findById(String id) throws SQLException {
         String sql="select *from student2.student where student.id="+id+"";
@@ -80,18 +72,17 @@ public class StudentDAOIMpl implements StudentDAO {
         return student;
     }
 
-
-
-
-
     @Override
-    public void deletStudent(String id) {
+    public void deleteStudent(String id) throws SQLException {
         String sql="delete from student2.student where student.id="+id+"";
+        Statement statement=getConnection().createStatement();
+        int resultSet=statement.executeUpdate(sql);
+
 
 
 
     }
-
+   @Override
     public void creat(Student student) throws SQLException {
         String iD=student.getId();
         String fn=student.getFirstName();
@@ -99,7 +90,14 @@ public class StudentDAOIMpl implements StudentDAO {
         String Email=student.getEmail();
         String password=student.getPassword();
         String jy=student.getJoinYear();
-        Statement statement=getConnection().createStatement();
+       PreparedStatement preparedStatement=getConnection().prepareStatement("insert  into student2.student (id, firstName, lastName, email, password, joinYear) values (?,?,?,?,?,?)");
+       preparedStatement.setString(1,iD);
+       preparedStatement.setString(2,fn);
+       preparedStatement.setString(3,ln);
+       preparedStatement.setString(4,Email);
+       preparedStatement.setString(5,password);
+       preparedStatement.setString(6,jy);
+       preparedStatement.executeUpdate();
 
 
 
@@ -108,8 +106,10 @@ public class StudentDAOIMpl implements StudentDAO {
 
 
     }
+   @Override
+    public void update(Student student) throws SQLException {
 
-    public void update(Student student) {
+
 
     }
 }
