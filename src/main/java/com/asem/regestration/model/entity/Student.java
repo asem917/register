@@ -1,12 +1,12 @@
 package com.asem.regestration.model.entity;
 
 public class Student {
-    String id;
-    String firstName;
-    String lastName;
-    String email;
-    String password;
-    String joinYear;
+   private String id;
+    private String firstName;
+    private String lastName;
+   private String email;
+   private String password;
+   private String joinYear;
 
     public Student(String id, String firstName, String lastName, String email, String password, String joinYear) {
         this.id = id;
@@ -63,5 +63,17 @@ public class Student {
 
     public void setJoinYear(String joinYear) {
         this.joinYear = joinYear;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", joinYear='" + joinYear + '\'' +
+                '}';
     }
 }
